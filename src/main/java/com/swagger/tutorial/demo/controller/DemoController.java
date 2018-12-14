@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -26,6 +27,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @Produces({ "application/json", "application/xml" })
+@Api(tags = "demo")
 public class DemoController {
 
   /**
@@ -36,7 +38,7 @@ public class DemoController {
   @GET
   @Path("/isAlive")
   @GetMapping("/isAlive")
-  @ApiOperation(value = "Is Alive operation", notes = "Return is the microservice is alive with a get operation returning the time", tags = "isAlive")
+  @ApiOperation(value = "Is Alive operation", notes = "Return is the microservice is alive with a get operation returning the time", tags = "demo")
   @ApiResponses({ @ApiResponse(code = HttpServletResponse.SC_OK, message = "OK"),
   @ApiResponse(code = HttpServletResponse.SC_INTERNAL_SERVER_ERROR, message = "INTERNAL ERROR SERVER"),
   @ApiResponse(code = HttpServletResponse.SC_UNAUTHORIZED, message = "UNAUTHORIZED"),
@@ -46,6 +48,20 @@ public class DemoController {
 
     Date tmpDate = new Date();
     return new ResponseEntity<String>(tmpDate.toString(), HttpStatus.OK);
+  }
+
+  @GET
+  @Path("/helloWorld")
+  @GetMapping("/helloWorld")
+  @ApiOperation(value = "Hello World operation", notes = "Return hello world string", tags = "demo")
+  @ApiResponses({ @ApiResponse(code = HttpServletResponse.SC_OK, message = "OK"),
+  @ApiResponse(code = HttpServletResponse.SC_INTERNAL_SERVER_ERROR, message = "INTERNAL ERROR SERVER"),
+  @ApiResponse(code = HttpServletResponse.SC_UNAUTHORIZED, message = "UNAUTHORIZED"),
+  @ApiResponse(code = HttpServletResponse.SC_FORBIDDEN, message = "FORBIDDEN"),
+  @ApiResponse(code = HttpServletResponse.SC_NOT_FOUND, message = "ELEMENTO NOT FOUND") })
+  public String helloWorld() {
+
+    return "Hello World";
   }
 
 }
