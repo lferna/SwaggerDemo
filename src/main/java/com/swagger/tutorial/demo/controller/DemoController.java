@@ -38,7 +38,7 @@ public class DemoController {
   @GET
   @Path("/isAlive")
   @GetMapping("/isAlive")
-  @ApiOperation(value = "Is Alive operation", notes = "Return is the microservice is alive with a get operation returning the time", tags = "demo")
+  @ApiOperation(value = "Is Alive operation", notes = "Return is the microservice is alive with a get operation returning the time")
   @ApiResponses({ @ApiResponse(code = HttpServletResponse.SC_OK, message = "OK"),
   @ApiResponse(code = HttpServletResponse.SC_INTERNAL_SERVER_ERROR, message = "INTERNAL ERROR SERVER"),
   @ApiResponse(code = HttpServletResponse.SC_UNAUTHORIZED, message = "UNAUTHORIZED"),
@@ -53,7 +53,7 @@ public class DemoController {
   @GET
   @Path("/helloWorld")
   @GetMapping("/helloWorld")
-  @ApiOperation(value = "Hello World operation", notes = "Return hello world string", tags = "demo")
+  @ApiOperation(value = "Hello World operation", notes = "Return hello world string")
   @ApiResponses({ @ApiResponse(code = HttpServletResponse.SC_OK, message = "OK"),
   @ApiResponse(code = HttpServletResponse.SC_INTERNAL_SERVER_ERROR, message = "INTERNAL ERROR SERVER"),
   @ApiResponse(code = HttpServletResponse.SC_UNAUTHORIZED, message = "UNAUTHORIZED"),
